@@ -28,10 +28,11 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
+    username = models.CharField(max_length=150, unique=True, null=True, blank=True)
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    employee_id = models.CharField(max_length=255, unique=True)
+    employee_id = models.CharField(max_length=255, unique=True, null=True, blank=True)
     unit = models.CharField(max_length=255)
     department = models.CharField(max_length=255)
     grade = models.CharField(max_length=5)
